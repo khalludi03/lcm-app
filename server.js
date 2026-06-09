@@ -7,7 +7,7 @@ function gcd(a, b) {
   return gcd(b, a % b);
 }
 function lcm(a, b) {
-  return (BigInt(a) * BigInt(b)) / BigInt(gcd(a, b));
+  return (a /gcd(a, b)) * b;
 }
 
 const server = http.createServer((req, res) => {
@@ -19,6 +19,6 @@ const server = http.createServer((req, res) => {
     res.end('NaN');
     return;
   }
-  const result = lcm(Number(x), Number(y));
+  const result = lcm(BigInt(x), BigInt(y));
   res.end(result.toString());
 }).listen(process.env.PORT || 3000);
