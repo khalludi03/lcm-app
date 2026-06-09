@@ -7,7 +7,7 @@ function gcd(a, b) {
   return gcd(b, a % b);
 }
 function lcm(a, b) {
-  return (a * b) / gcd(a, b);
+  return (BigInt(a) * BigInt(b)) / BigInt(gcd(a, b));
 }
 
 const server = http.createServer((req, res) => {
